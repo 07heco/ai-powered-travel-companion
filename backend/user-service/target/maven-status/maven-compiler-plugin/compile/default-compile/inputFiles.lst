@@ -1,0 +1,14 @@
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\LoginResponse.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\UserApplication.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\config\SecurityConfig.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\dao\UserDao.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\UpdateUserInfoRequest.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\UserInfoResponse.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\service\UserService.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\RegisterRequest.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\RegisterResponse.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\LoginRequest.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\vo\ChangePasswordRequest.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\service\impl\UserServiceImpl.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\controller\UserController.java
+E:\AI-Powered Travel Companion\backend\user-service\src\main\java\com\travel\user\entity\User.java

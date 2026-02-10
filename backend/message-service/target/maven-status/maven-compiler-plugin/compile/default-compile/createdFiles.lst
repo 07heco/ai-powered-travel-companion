@@ -1,0 +1,6 @@
+com\travel\message\controller\MessageController.class
+com\travel\message\entity\Message.class
+com\travel\message\dao\MessageDao.class
+com\travel\message\service\impl\MessageServiceImpl.class
+com\travel\message\MessageApplication.class
+com\travel\message\service\MessageService.class

@@ -1,0 +1,8 @@
+com\travel\trip\dao\TripDetailDao.class
+com\travel\trip\controller\TripController.class
+com\travel\trip\entity\TripDetail.class
+com\travel\trip\TripApplication.class
+com\travel\trip\entity\Trip.class
+com\travel\trip\service\TripService.class
+com\travel\trip\dao\TripDao.class
+com\travel\trip\service\impl\TripServiceImpl.class

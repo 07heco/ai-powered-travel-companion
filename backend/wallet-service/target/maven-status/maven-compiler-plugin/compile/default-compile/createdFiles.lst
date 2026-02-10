@@ -1,0 +1,8 @@
+com\travel\wallet\entity\Wallet.class
+com\travel\wallet\service\impl\WalletServiceImpl.class
+com\travel\wallet\entity\Coupon.class
+com\travel\wallet\service\WalletService.class
+com\travel\wallet\dao\WalletDao.class
+com\travel\wallet\WalletApplication.class
+com\travel\wallet\controller\WalletController.class
+com\travel\wallet\dao\CouponDao.class

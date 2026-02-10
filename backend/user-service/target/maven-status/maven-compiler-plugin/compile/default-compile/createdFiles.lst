@@ -1,0 +1,14 @@
+com\travel\user\vo\RegisterResponse.class
+com\travel\user\service\impl\UserServiceImpl.class
+com\travel\user\controller\UserController.class
+com\travel\user\config\SecurityConfig.class
+com\travel\user\vo\ChangePasswordRequest.class
+com\travel\user\entity\User.class
+com\travel\user\vo\RegisterRequest.class
+com\travel\user\UserApplication.class
+com\travel\user\vo\UpdateUserInfoRequest.class
+com\travel\user\dao\UserDao.class
+com\travel\user\vo\LoginRequest.class
+com\travel\user\vo\LoginResponse.class
+com\travel\user\vo\UserInfoResponse.class
+com\travel\user\service\UserService.class

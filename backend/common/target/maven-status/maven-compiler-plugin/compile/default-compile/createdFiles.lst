@@ -1,0 +1,5 @@
+com\travel\common\vo\PageQuery.class
+com\travel\common\vo\PageResult.class
+com\travel\common\utils\RedisUtil.class
+com\travel\common\vo\R.class
+com\travel\common\utils\JWTUtil.class

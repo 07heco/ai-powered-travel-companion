@@ -1,0 +1,8 @@
+com\travel\ai\dao\TravelMateDao.class
+com\travel\ai\controller\AIController.class
+com\travel\ai\entity\TravelMate.class
+com\travel\ai\entity\AIPlan.class
+com\travel\ai\service\impl\AIServiceImpl.class
+com\travel\ai\AIApplication.class
+com\travel\ai\service\AIService.class
+com\travel\ai\dao\AIPlanDao.class

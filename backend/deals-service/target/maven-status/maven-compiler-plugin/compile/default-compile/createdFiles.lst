@@ -1,0 +1,6 @@
+com\travel\deals\entity\Deal.class
+com\travel\deals\controller\DealsController.class
+com\travel\deals\dao\DealDao.class
+com\travel\deals\service\impl\DealsServiceImpl.class
+com\travel\deals\service\DealsService.class
+com\travel\deals\DealsApplication.class
