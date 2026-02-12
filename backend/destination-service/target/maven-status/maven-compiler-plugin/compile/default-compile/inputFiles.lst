@@ -1,8 +1,8 @@
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\service\impl\DestinationServiceImpl.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\entity\Destination.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\controller\DestinationController.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\DestinationApplication.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\entity\Attraction.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\dao\DestinationDao.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\service\DestinationService.java
-E:\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\dao\AttractionDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\controller\DestinationController.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\entity\Destination.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\service\DestinationService.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\DestinationApplication.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\service\impl\DestinationServiceImpl.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\dao\DestinationDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\dao\AttractionDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\destination-service\src\main\java\com\travel\destination\entity\Attraction.java
