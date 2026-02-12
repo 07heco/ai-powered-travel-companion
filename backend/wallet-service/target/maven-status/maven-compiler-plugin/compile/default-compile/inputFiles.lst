@@ -1,8 +1,8 @@
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\controller\WalletController.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\dao\CouponDao.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\service\impl\WalletServiceImpl.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\entity\Wallet.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\service\WalletService.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\WalletApplication.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\entity\Coupon.java
-E:\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\dao\WalletDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\dao\WalletDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\entity\Coupon.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\WalletApplication.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\controller\WalletController.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\service\WalletService.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\entity\Wallet.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\dao\CouponDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\wallet-service\src\main\java\com\travel\wallet\service\impl\WalletServiceImpl.java
