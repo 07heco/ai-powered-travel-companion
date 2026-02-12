@@ -15,7 +15,7 @@ public class TripCollaborator {
     private Long tripId;
     private Long userId;
     private String role;
-    private String status;
+    private String permissions;
     private LocalDateTime joinedAt;
     private LocalDateTime updatedAt;
 }

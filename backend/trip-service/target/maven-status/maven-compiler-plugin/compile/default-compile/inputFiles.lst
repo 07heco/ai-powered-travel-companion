@@ -1,8 +1,15 @@
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\service\impl\TripServiceImpl.java
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\service\TripService.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\dao\TripCommentDao.java
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\dao\TripDao.java
-E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\TripDetail.java
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\dao\TripDetailDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\dao\TripAttachmentDao.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\TripAttachment.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\TripComment.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\Trip.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\TripCollaborator.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\config\SecurityConfig.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\TripDetail.java
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\TripApplication.java
 E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\controller\TripController.java
-E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\entity\Trip.java
+E:\GitHub开源项目\AI-Powered Travel Companion\backend\trip-service\src\main\java\com\travel\trip\dao\TripCollaboratorDao.java

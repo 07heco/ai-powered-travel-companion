@@ -4,9 +4,10 @@ import com.travel.common.vo.PageQuery;
 import com.travel.common.vo.PageResult;
 import com.travel.trip.entity.Trip;
 import com.travel.trip.entity.TripDetail;
-import com.travel.trip.entity.TripCollaborator;
 import com.travel.trip.entity.TripComment;
+import com.travel.trip.entity.TripCollaborator;
 import com.travel.trip.entity.TripAttachment;
+
 
 import java.util.List;
 import java.util.Map;
@@ -26,22 +27,20 @@ public interface TripService {
     TripDetail updateTripDetail(TripDetail tripDetail);
     void deleteTripDetail(Long id);
     
-    // 行程协作操作
-    List<TripCollaborator> getTripCollaborators(Long tripId);
-    TripCollaborator addCollaborator(TripCollaborator collaborator);
-    TripCollaborator updateCollaborator(Long id, TripCollaborator collaborator);
-    void removeCollaborator(Long id);
-    List<Trip> getCollaboratorTrips(Long userId);
-    
     // 行程评论操作
     List<TripComment> getTripComments(Long tripId);
     TripComment addComment(TripComment comment);
     TripComment updateComment(Long id, TripComment comment);
     void deleteComment(Long id);
     
+    // 行程协作操作
+    List<TripCollaborator> getTripCollaborators(Long tripId);
+    TripCollaborator addCollaborator(TripCollaborator collaborator);
+    TripCollaborator updateCollaborator(Long id, TripCollaborator collaborator);
+    void removeCollaborator(Long id);
+    
     // 行程附件操作
     List<TripAttachment> getTripAttachments(Long tripId);
-    List<TripAttachment> getTripDetailAttachments(Long tripDetailId);
     TripAttachment addAttachment(TripAttachment attachment);
     void deleteAttachment(Long id);
     

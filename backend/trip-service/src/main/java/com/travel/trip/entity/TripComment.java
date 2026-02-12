@@ -14,9 +14,10 @@ public class TripComment {
     @TableId(type = IdType.AUTO)
     private Long id;
     private Long tripId;
+    private Long tripDetailId;
     private Long userId;
-    private String content;
     private Long parentId;
+    private String content;
     private Integer status;
     @TableLogic
     private Integer deleted;
