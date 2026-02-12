@@ -9,24 +9,15 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("trip")
-public class Trip {
+@TableName("trip_comment")
+public class TripComment {
     @TableId(type = IdType.AUTO)
     private Long id;
+    private Long tripId;
     private Long userId;
-    private String tripName;
-    private String destination;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private String status;
-    private String description;
-    private String coverImage;
-    private Integer isPublic;
-    private Integer isShared;
-    private Integer collaboratorCount;
-    private Integer commentCount;
-    private Integer viewCount;
-    private Integer enabled;
+    private String content;
+    private Long parentId;
+    private Integer status;
     @TableLogic
     private Integer deleted;
     private Long createdBy;

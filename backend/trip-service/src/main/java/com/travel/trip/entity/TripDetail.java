@@ -3,6 +3,7 @@ package com.travel.trip.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -20,6 +21,11 @@ public class TripDetail {
     private String accommodation;
     private String transportation;
     private String notes;
+    private Integer status;
+    @TableLogic
+    private Integer deleted;
+    private Long createdBy;
+    private Long updatedBy;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

@@ -9,24 +9,20 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("trip")
-public class Trip {
+@TableName("trip_attachment")
+public class TripAttachment {
     @TableId(type = IdType.AUTO)
     private Long id;
+    private Long tripId;
+    private Long tripDetailId;
     private Long userId;
-    private String tripName;
-    private String destination;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private String status;
+    private String fileName;
+    private String filePath;
+    private Long fileSize;
+    private String fileType;
     private String description;
-    private String coverImage;
     private Integer isPublic;
-    private Integer isShared;
-    private Integer collaboratorCount;
-    private Integer commentCount;
-    private Integer viewCount;
-    private Integer enabled;
+    private Integer status;
     @TableLogic
     private Integer deleted;
     private Long createdBy;
