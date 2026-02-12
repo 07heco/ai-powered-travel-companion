@@ -6,75 +6,38 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * 景点实体类
+ * 景点评价实体类
  */
 @Data
-@TableName("attraction")
-public class Attraction {
+@TableName("attraction_review")
+public class AttractionReview {
     /**
-     * 景点ID
+     * 评价ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 目的地ID
+     * 景点ID
      */
-    @TableField(value = "destination_id")
-    private Long destinationId;
+    @TableField(value = "attraction_id")
+    private Long attractionId;
 
     /**
-     * 景点名称
+     * 用户ID
      */
-    private String name;
+    @TableField(value = "user_id")
+    private Long userId;
 
     /**
-     * 景点描述
+     * 评分：1-5星
      */
-    private String description;
+    private Integer rating;
 
     /**
-     * 景点地址
+     * 评价内容
      */
-    private String address;
-
-    /**
-     * 景点图片
-     */
-    @TableField(value = "image_url")
-    private String imageUrl;
-
-    /**
-     * 纬度
-     */
-    private Double latitude;
-
-    /**
-     * 经度
-     */
-    private Double longitude;
-
-    /**
-     * 评分
-     */
-    private Double rating;
-
-    /**
-     * 景点分类
-     */
-    private String category;
-
-    /**
-     * 开放时间
-     */
-    @TableField(value = "opening_hours")
-    private String openingHours;
-
-    /**
-     * 门票价格
-     */
-    @TableField(value = "ticket_price")
-    private Double ticketPrice;
+    private String content;
 
     /**
      * 状态：0-禁用，1-启用

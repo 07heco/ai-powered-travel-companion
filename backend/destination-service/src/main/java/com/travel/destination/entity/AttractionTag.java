@@ -6,58 +6,28 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * 目的地实体类
+ * 景点标签实体类
  */
 @Data
-@TableName("destination")
-public class Destination {
+@TableName("attraction_tag")
+public class AttractionTag {
     /**
-     * 目的地ID
+     * 标签ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 目的地名称
+     * 景点ID
      */
-    private String name;
+    @TableField(value = "attraction_id")
+    private Long attractionId;
 
     /**
-     * 国家
+     * 标签名称
      */
-    private String country;
-
-    /**
-     * 城市
-     */
-    private String city;
-
-    /**
-     * 目的地描述
-     */
-    private String description;
-
-    /**
-     * 封面图片
-     */
-    @TableField(value = "cover_image")
-    private String coverImage;
-
-    /**
-     * 纬度
-     */
-    private Double latitude;
-
-    /**
-     * 经度
-     */
-    private Double longitude;
-
-    /**
-     * 热门评分
-     */
-    @TableField(value = "popular_score")
-    private Integer popularScore;
+    @TableField(value = "tag_name")
+    private String tagName;
 
     /**
      * 状态：0-禁用，1-启用

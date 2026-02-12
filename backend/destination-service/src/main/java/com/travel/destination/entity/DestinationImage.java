@@ -6,13 +6,13 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * 景点实体类
+ * 目的地图片实体类
  */
 @Data
-@TableName("attraction")
-public class Attraction {
+@TableName("destination_image")
+public class DestinationImage {
     /**
-     * 景点ID
+     * 图片ID
      */
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -24,57 +24,15 @@ public class Attraction {
     private Long destinationId;
 
     /**
-     * 景点名称
-     */
-    private String name;
-
-    /**
-     * 景点描述
-     */
-    private String description;
-
-    /**
-     * 景点地址
-     */
-    private String address;
-
-    /**
-     * 景点图片
+     * 图片URL
      */
     @TableField(value = "image_url")
     private String imageUrl;
 
     /**
-     * 纬度
+     * 排序
      */
-    private Double latitude;
-
-    /**
-     * 经度
-     */
-    private Double longitude;
-
-    /**
-     * 评分
-     */
-    private Double rating;
-
-    /**
-     * 景点分类
-     */
-    private String category;
-
-    /**
-     * 开放时间
-     */
-    @TableField(value = "opening_hours")
-    private String openingHours;
-
-    /**
-     * 门票价格
-     */
-    @TableField(value = "ticket_price")
-    private Double ticketPrice;
+    private Integer sort;
 
     /**
      * 状态：0-禁用，1-启用
