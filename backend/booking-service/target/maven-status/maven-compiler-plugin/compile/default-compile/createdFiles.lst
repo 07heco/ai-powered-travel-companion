@@ -1,8 +1,8 @@
 com\travel\booking\dao\OrderDao.class
+com\travel\booking\entity\Order.class
+com\travel\booking\entity\Booking.class
 com\travel\booking\dao\BookingDao.class
 com\travel\booking\controller\BookingController.class
-com\travel\booking\entity\Booking.class
 com\travel\booking\service\impl\BookingServiceImpl.class
 com\travel\booking\BookingApplication.class
 com\travel\booking\service\BookingService.class
-com\travel\booking\entity\Order.class

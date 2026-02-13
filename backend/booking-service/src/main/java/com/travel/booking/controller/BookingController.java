@@ -10,6 +10,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Map;
+import com.travel.booking.service.FlightSearchService;
+import com.travel.booking.service.HotelSearchService;
+import com.travel.booking.service.TicketSearchService;
 
 @RestController
 @RequestMapping("/booking")
@@ -18,6 +22,15 @@ public class BookingController {
 
     @Resource
     private BookingService bookingService;
+    
+    @Resource
+    private FlightSearchService flightSearchService;
+    
+    @Resource
+    private HotelSearchService hotelSearchService;
+    
+    @Resource
+    private TicketSearchService ticketSearchService;
 
     @Operation(summary = "创建预订", description = "创建新的预订")
     @PostMapping
@@ -79,5 +92,30 @@ public class BookingController {
     public R<?> updateOrderStatus(@PathVariable Long id, @RequestParam String status) {
         bookingService.updateOrderStatus(id, status);
         return R.success();
+    }
+
+    @Operation(summary = "支付回调", description = "处理支付回调")
+    @PostMapping("/callback/pay")
+    public R<?> payCallback(@RequestBody Map<String, Object> callbackData) {
+        bookingService.handlePayCallback(callbackData);
+        return R.success();
+    }
+
+    @Operation(summary = "搜索航班", description = "搜索航班")
+    @PostMapping("/search/flight")
+    public R<?> searchFlights(@RequestBody Map<String, Object> searchParams) {
+        return R.success(flightSearchService.searchFlights(searchParams));
+    }
+
+    @Operation(summary = "搜索酒店", description = "搜索酒店")
+    @PostMapping("/search/hotel")
+    public R<?> searchHotels(@RequestBody Map<String, Object> searchParams) {
+        return R.success(hotelSearchService.searchHotels(searchParams));
+    }
+
+    @Operation(summary = "搜索门票", description = "搜索门票")
+    @PostMapping("/search/ticket")
+    public R<?> searchTickets(@RequestBody Map<String, Object> searchParams) {
+        return R.success(ticketSearchService.searchTickets(searchParams));
     }
 }

@@ -1,0 +1,32 @@
+spring:
+  # 禁用数据库连接
+  datasource:
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # 禁用Redis
+  redis:
+    enabled: false
+  
+  # 禁用RabbitMQ
+  rabbitmq:
+    enabled: false
+  
+  # 禁用Nacos
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+      config:
+        enabled: false
+
+# 禁用MyBatis-Plus日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+# 禁用服务注册发现
+spring.cloud.discovery.enabled: false
+spring.cloud.openfeign.enabled: false
