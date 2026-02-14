@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travel.user.dao.UserThirdPartyDao">
+    
+    <resultMap id="BaseResultMap" type="com.travel.user.entity.UserThirdParty">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="third_type" property="thirdType" />
+        <result column="third_openid" property="thirdOpenid" />
+        <result column="third_unionid" property="thirdUnionid" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        id, user_id, third_type, third_openid, third_unionid, create_time, update_time
+    </sql>
+    
+    <select id="selectByThirdTypeAndOpenid" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_third_party
+        WHERE third_type = #{thirdType}
+        AND third_openid = #{thirdOpenid}
+    </select>
+    
+    <select id="selectByThirdTypeAndUnionid" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_third_party
+        WHERE third_type = #{thirdType}
+        AND third_unionid = #{thirdUnionid}
+    </select>
+    
+    <select id="selectByUserIdAndThirdType" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_third_party
+        WHERE user_id = #{userId}
+        AND third_type = #{thirdType}
+    </select>
+    
+</mapper>

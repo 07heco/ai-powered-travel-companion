@@ -6,6 +6,7 @@ import com.travel.booking.entity.Booking;
 import com.travel.booking.entity.Order;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BookingService {
     Booking createBooking(Booking booking);
@@ -18,4 +19,5 @@ public interface BookingService {
     Order getOrderByNo(String orderNo);
     PageResult<Order> getUserOrders(Long userId, PageQuery query);
     void updateOrderStatus(Long orderId, String status);
+    void handlePayCallback(Map<String, Object> callbackData);
 }

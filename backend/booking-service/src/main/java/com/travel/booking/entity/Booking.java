@@ -16,13 +16,20 @@ public class Booking {
     private Long tripId;
     private String bookingType;
     private String bookingName;
+    private Double totalPrice;
+    private String status;
+    private String paymentStatus;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
     private Integer adultCount;
     private Integer childCount;
-    private Double totalPrice;
-    private String status;
-    private String paymentStatus;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    
+    // 临时字段，用于接收请求参数
+    private transient Double price;
+    private transient String departureDate;
+    private transient String returnDate;
+    private transient String passengers;
+    private transient String specialRequests;
 }

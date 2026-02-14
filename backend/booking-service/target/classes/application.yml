@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8089
   servlet:
     context-path: /booking
 
@@ -29,6 +29,11 @@ spring:
     password: 123456
     virtual-host: /
   
+  # 禁用数据库初始化依赖检测
+  sql:
+    init:
+      enabled: false
+  
   # Nacos配置
   cloud:
     nacos:
@@ -40,6 +45,8 @@ spring:
         namespace: public
         group: DEFAULT_GROUP
         file-extension: yaml
+        import-check:
+          enabled: false
 
 # MyBatis-Plus配置
 mybatis-plus:
