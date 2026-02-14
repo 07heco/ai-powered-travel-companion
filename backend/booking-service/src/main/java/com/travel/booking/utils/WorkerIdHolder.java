@@ -15,6 +15,16 @@ public class WorkerIdHolder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        WORKER_ID = redissonClient.getAtomicLong("workerId").incrementAndGet() % 32;
+        try {
+            if (redissonClient != null) {
+                WORKER_ID = redissonClient.getAtomicLong("workerId").incrementAndGet() % 32;
+            } else {
+                // Redis不可用时，使用默认workerId
+                WORKER_ID = 1;
+            }
+        } catch (Exception e) {
+            // Redis连接失败时，使用默认workerId
+            WORKER_ID = 1;
+        }
     }
 }

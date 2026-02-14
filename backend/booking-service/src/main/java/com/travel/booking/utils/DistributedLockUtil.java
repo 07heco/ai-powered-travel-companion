@@ -13,18 +13,30 @@ public class DistributedLockUtil {
     private RedissonClient redissonClient;
     
     public boolean tryLock(String lockKey, long waitTime, long leaseTime) {
-        RLock lock = redissonClient.getLock(lockKey);
         try {
-            return lock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            return false;
+            if (redissonClient != null) {
+                RLock lock = redissonClient.getLock(lockKey);
+                return lock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS);
+            } else {
+                // Redis不可用时，直接返回true，跳过分布式锁检查
+                return true;
+            }
+        } catch (Exception e) {
+            // Redis连接失败时，直接返回true，跳过分布式锁检查
+            return true;
         }
     }
     
     public void unlock(String lockKey) {
-        RLock lock = redissonClient.getLock(lockKey);
-        if (lock.isLocked() && lock.isHeldByCurrentThread()) {
-            lock.unlock();
+        try {
+            if (redissonClient != null) {
+                RLock lock = redissonClient.getLock(lockKey);
+                if (lock.isLocked() && lock.isHeldByCurrentThread()) {
+                    lock.unlock();
+                }
+            }
+        } catch (Exception e) {
+            // Redis连接失败时，忽略解锁操作
         }
     }
 }

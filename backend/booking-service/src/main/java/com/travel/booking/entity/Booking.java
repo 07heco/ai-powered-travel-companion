@@ -25,4 +25,11 @@ public class Booking {
     private Integer childCount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    
+    // 临时字段，用于接收请求参数
+    private transient Double price;
+    private transient String departureDate;
+    private transient String returnDate;
+    private transient String passengers;
+    private transient String specialRequests;
 }

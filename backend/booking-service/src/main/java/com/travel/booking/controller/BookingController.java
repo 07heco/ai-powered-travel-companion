@@ -16,7 +16,7 @@ import com.travel.booking.service.HotelSearchService;
 import com.travel.booking.service.TicketSearchService;
 
 @RestController
-@RequestMapping("/booking")
+@RequestMapping("/")
 @Tag(name = "预订服务", description = "提供预订和订单管理相关接口")
 public class BookingController {
 

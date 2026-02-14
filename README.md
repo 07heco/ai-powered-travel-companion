@@ -175,9 +175,11 @@ backend/
 
 ### 4. 预订服务 API
 
-- **预订管理**：创建和管理预订
+- **预订管理**：创建和管理预订（支持航班、酒店、门票等类型）
 - **订单管理**：订单状态更新和查询
-- **支付接口**：预订支付相关
+- **支付接口**：预订支付相关和支付回调处理
+- **搜索接口**：航班、酒店、门票搜索
+- **门票服务**：门票类型管理和验证
 
 ### 5. AI 服务 API
 
@@ -268,7 +270,7 @@ backend/
 - **用户服务**：http://localhost:8081/
 - **目的地服务**：http://localhost:8082/
 - **旅行服务**：http://localhost:8083/
-- **预订服务**：http://localhost:8084/
+- **预订服务**：http://localhost:8089/
 - **消息服务**：http://localhost:8087/
 
 ## API 文档
@@ -279,7 +281,7 @@ backend/
 - **用户服务文档**：http://localhost:8081/doc.html
 - **目的地服务文档**：http://localhost:8082/doc.html
 - **旅行服务文档**：http://localhost:8083/doc.html
-- **预订服务文档**：http://localhost:8084/doc.html
+- **预订服务文档**：http://localhost:8089/doc.html
 - **消息服务文档**：http://localhost:8087/doc.html
 
 ### API 文档使用
