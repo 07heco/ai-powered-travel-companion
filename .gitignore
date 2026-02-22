@@ -48,6 +48,12 @@ coverage/
 .tmp/
 .temp/
 
+# Documentation files to hide
+.trae/documents/AI服务后端开发计划.md
+.trae/documents/plan_20260211_121431.md
+.trae/documents/plan_20260212_100952.md
+.trae/documents/创建 MySQL 数据库和表结构计划.md
+
 # Dependency directories
 node_modules/
 jspm_packages/
