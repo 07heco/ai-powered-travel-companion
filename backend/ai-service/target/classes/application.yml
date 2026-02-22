@@ -2,6 +2,13 @@ server:
   port: 8085
   servlet:
     context-path: /ai
+  # Tomcat配置
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 25
+    connection-timeout: 60000
+    max-connections: 10000
 
 spring:
   application:
@@ -9,10 +16,18 @@ spring:
   
   # 数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3307/travel_companion?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3307/travel_companion?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接池配置
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+      pool-name: HikariCP-AI-Service
   
   # Redis配置
   redis:
@@ -20,6 +35,14 @@ spring:
     port: 6379
     password: 123456
     database: 0
+    # Redis连接池配置
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 10000
   
   # RabbitMQ配置
   rabbitmq:
@@ -40,27 +63,82 @@ spring:
         namespace: public
         group: DEFAULT_GROUP
         file-extension: yaml
+        import-check:
+          enabled: false
   
   # AI配置
   ai:
+    # OpenAI配置
     openai:
       api-key: your-api-key
       base-url: https://api.openai.com/v1
+    # HuggingFace配置
+    huggingface:
+      api-key: your-huggingface-api-key
+      base-url: https://api-inference.huggingface.co/models
+    # 模型配置
+    model:
+      # 文本生成模型
+      text-generation:
+        default: gpt-3.5-turbo
+        options:
+          - gpt-3.5-turbo
+          - gpt-4
+          - mistralai/Mixtral-8x7B-Instruct-v0.1
+          - meta-llama/Llama-2-70b-chat-hf
+      # 图像识别模型
+      image-recognition:
+        default: google/vit-base-patch16-224
+        options:
+          - google/vit-base-patch16-224
+          - microsoft/resnet-50
+          - facebook/dino-vitb16
+      # 本地模型配置（可选）
+      local:
+        enabled: false
+        text-generation:
+          model-path: /path/to/local/model
+        image-recognition:
+          model-path: /path/to/local/image/model
 
-# MyBatis-Plus配置
-mybatis-plus:
-  mapper-locations: classpath*:mapper/**/*.xml
-  type-aliases-package: com.travel.ai.entity
-  global-config:
-    db-config:
-      id-type: auto
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-  configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 线程池配置
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 50
+        queue-capacity: 100
+        keep-alive: 60s
+      thread-name-prefix: ai-task-
+  
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
 
 # 日志配置
 logging:
   level:
     com.travel.ai: debug
+
+
+
+# 缓存配置
+ai:
+  cache:
+    enabled: true
+    # Redis缓存配置
+    redis:
+      enabled: true
+      key-prefix: "ai:"
+      default-ttl: 3600
+    # 本地缓存配置
+    local:
+      enabled: true
+      max-size: 1000
+      ttl: 600

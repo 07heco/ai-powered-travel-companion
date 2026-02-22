@@ -1,9 +1,9 @@
 package com.travel.ai.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.travel.ai.entity.AIPlan;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-@Mapper
-public interface AIPlanDao extends BaseMapper<AIPlan> {
+@Repository
+public interface AIPlanDao extends JpaRepository<AIPlan, Long> {
 }
