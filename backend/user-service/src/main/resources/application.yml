@@ -15,11 +15,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   # Redis配置
-  redis:
-    host: localhost
-    port: 6379
-    password: 123456
-    database: 0
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456
+      database: 0
   
   # RabbitMQ配置
   rabbitmq:
@@ -40,6 +41,8 @@ spring:
         namespace: public
         group: DEFAULT_GROUP
         file-extension: yaml
+        import-check:
+          enabled: false
 
 # MyBatis-Plus配置
 mybatis-plus:
@@ -53,6 +56,11 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 微信配置
+wechat:
+  app-id: your-app-id
+  app-secret: your-app-secret
 
 # 日志配置
 logging:

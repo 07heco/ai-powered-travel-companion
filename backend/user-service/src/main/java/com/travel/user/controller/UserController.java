@@ -1,79 +1,38 @@
 package com.travel.user.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.travel.common.vo.R;
 import com.travel.user.service.UserService;
 import com.travel.user.vo.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.annotation.Resource;
 
 /**
  * 用户控制器
  */
+@Tag(name = "用户接口", description = "处理用户信息管理相关操作")
 @Slf4j
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Resource
     private UserService userService;
 
     /**
-     * 用户登录
-     */
-    @PostMapping("/login")
-    public R<LoginResponse> login(@RequestBody LoginRequest request) {
-        try {
-            LoginResponse response = userService.login(request);
-            return R.success(response);
-        } catch (Exception e) {
-            log.error("登录失败: {}", e.getMessage());
-            return R.error(e.getMessage());
-        }
-    }
-
-    /**
-     * 用户注册
-     */
-    @PostMapping("/register")
-    public R<RegisterResponse> register(@RequestBody RegisterRequest request) {
-        try {
-            RegisterResponse response = userService.register(request);
-            return R.success(response);
-        } catch (Exception e) {
-            log.error("注册失败: {}", e.getMessage());
-            return R.error(e.getMessage());
-        }
-    }
-
-    /**
-     * 发送验证码
-     */
-    @PostMapping("/send-code")
-    public R<Boolean> sendCode(@RequestParam String phone, @RequestParam String type) {
-        try {
-            boolean result = userService.sendCode(phone, type);
-            return R.success(result);
-        } catch (Exception e) {
-            log.error("发送验证码失败: {}", e.getMessage());
-            return R.error(e.getMessage());
-        }
-    }
-
-    /**
      * 获取用户信息
      */
-    @GetMapping("/user-info")
-    public R<UserInfoResponse> getUserInfo(HttpServletRequest request) {
+    @Operation(summary = "获取用户信息", description = "获取当前登录用户的详细信息")
+    @GetMapping("/info")
+    public R<UserInfoResponse> getUserInfo() {
         try {
-            // 从请求头中获取用户ID
-            String userIdStr = request.getHeader("userId");
-            if (userIdStr == null) {
-                return R.unauth();
-            }
-            Long userId = Long.parseLong(userIdStr);
+            // 使用Sa-Token获取用户ID
+            Long userId = StpUtil.getLoginIdAsLong();
             UserInfoResponse response = userService.getUserInfo(userId);
             return R.success(response);
         } catch (Exception e) {
@@ -85,15 +44,12 @@ public class UserController {
     /**
      * 更新用户信息
      */
-    @PutMapping("/update-info")
-    public R<Boolean> updateUserInfo(HttpServletRequest request, @RequestBody UpdateUserInfoRequest updateRequest) {
+    @Operation(summary = "更新用户信息", description = "更新当前登录用户的信息")
+    @PutMapping("/info")
+    public R<Boolean> updateUserInfo(@Parameter(description = "更新用户信息请求参数", required = true) @RequestBody UpdateUserInfoRequest updateRequest) {
         try {
-            // 从请求头中获取用户ID
-            String userIdStr = request.getHeader("userId");
-            if (userIdStr == null) {
-                return R.unauth();
-            }
-            Long userId = Long.parseLong(userIdStr);
+            // 使用Sa-Token获取用户ID
+            Long userId = StpUtil.getLoginIdAsLong();
             boolean result = userService.updateUserInfo(userId, updateRequest);
             return R.success(result);
         } catch (Exception e) {
@@ -105,42 +61,16 @@ public class UserController {
     /**
      * 修改密码
      */
-    @PutMapping("/change-password")
-    public R<Boolean> changePassword(HttpServletRequest request, @RequestBody ChangePasswordRequest passwordRequest) {
+    @Operation(summary = "修改密码", description = "修改当前登录用户的密码")
+    @PutMapping("/password")
+    public R<Boolean> changePassword(@Parameter(description = "修改密码请求参数", required = true) @RequestBody ChangePasswordRequest passwordRequest) {
         try {
-            // 从请求头中获取用户ID
-            String userIdStr = request.getHeader("userId");
-            if (userIdStr == null) {
-                return R.unauth();
-            }
-            Long userId = Long.parseLong(userIdStr);
+            // 使用Sa-Token获取用户ID
+            Long userId = StpUtil.getLoginIdAsLong();
             boolean result = userService.changePassword(userId, passwordRequest);
             return R.success(result);
         } catch (Exception e) {
             log.error("修改密码失败: {}", e.getMessage());
-            return R.error(e.getMessage());
-        }
-    }
-
-    /**
-     * 登出
-     */
-    @PostMapping("/logout")
-    public R<Boolean> logout(HttpServletRequest request) {
-        try {
-            // 从请求头中获取token
-            String token = request.getHeader("Authorization");
-            if (token == null) {
-                return R.unauth();
-            }
-            // 移除Bearer前缀
-            if (token.startsWith("Bearer ")) {
-                token = token.substring(7);
-            }
-            boolean result = userService.logout(token);
-            return R.success(result);
-        } catch (Exception e) {
-            log.error("登出失败: {}", e.getMessage());
             return R.error(e.getMessage());
         }
     }

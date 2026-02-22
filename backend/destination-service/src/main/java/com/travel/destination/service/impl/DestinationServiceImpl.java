@@ -11,7 +11,7 @@ import com.travel.destination.entity.Attraction;
 import com.travel.destination.service.DestinationService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 @Service

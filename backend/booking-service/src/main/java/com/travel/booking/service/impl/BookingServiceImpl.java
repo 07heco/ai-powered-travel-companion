@@ -11,7 +11,7 @@ import com.travel.booking.entity.Order;
 import com.travel.booking.service.BookingService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.UUID;
 
 @Service

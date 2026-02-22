@@ -12,7 +12,7 @@ import com.travel.ai.service.AIService;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.time.LocalDateTime;
 
 @Service
