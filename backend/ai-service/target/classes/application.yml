@@ -7,6 +7,10 @@ spring:
   application:
     name: ai-service
   
+  # 配置导入
+  config:
+    import: nacos:${spring.application.name}.yaml
+  
   # 数据库配置
   datasource:
     url: jdbc:mysql://localhost:3307/travel_companion?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai

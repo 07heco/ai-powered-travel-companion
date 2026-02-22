@@ -1,11 +1,15 @@
 server:
-  port: 8083
+  port: 8090
   servlet:
     context-path: /booking
 
 spring:
   application:
     name: booking-service
+  
+  # 配置导入
+  config:
+    import: nacos:${spring.application.name}.yaml
   
   # 数据库配置
   datasource:

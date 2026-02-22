@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -71,10 +71,10 @@ public class AuthService {
                 throw new RuntimeException("用户不存在");
             }
             
-   // 验证密码
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new RuntimeException("密码错误");
-        }
+            // 验证密码
+            if (!passwordEncoder.matches(password, user.getPassword())) {
+                throw new RuntimeException("密码错误");
+            }
         } else {
             throw new RuntimeException("请提供密码或验证码");
         }
@@ -166,6 +166,11 @@ public class AuthService {
         // 验证密码
         if (!password.equals(confirmPassword)) {
             throw new RuntimeException("两次输入的密码不一致");
+        }
+        
+        // 验证密码强度
+        if (!com.travel.user.utils.PasswordUtil.validatePassword(password)) {
+            throw new RuntimeException(com.travel.user.utils.PasswordUtil.getPasswordStrengthTip(password));
         }
         
         // 验证验证码

@@ -42,3 +42,38 @@ CREATE TABLE IF NOT EXISTS user_third_party (
     KEY idx_user_id (user_id),
     CONSTRAINT fk_user_third_party_user_id FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='第三方账号关联表';
+
+-- 创建 user_relation 表
+CREATE TABLE IF NOT EXISTS user_relation (
+    id BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    from_user_id BIGINT NOT NULL COMMENT '发起用户ID',
+    to_user_id BIGINT NOT NULL COMMENT '目标用户ID',
+    type INT NOT NULL COMMENT '关系类型：1-关注，2-好友，3-黑名单',
+    status INT NOT NULL COMMENT '状态：0-待确认，1-已确认',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    deleted TINYINT DEFAULT 0 COMMENT '逻辑删除：0-未删除，1-已删除',
+    PRIMARY KEY (id),
+    KEY idx_from_user_id (from_user_id),
+    KEY idx_to_user_id (to_user_id),
+    KEY idx_type (type),
+    KEY idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户关系表';
+
+-- 创建 travel_companion_match 表
+CREATE TABLE IF NOT EXISTS travel_companion_match (
+    id BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    user_id BIGINT NOT NULL COMMENT '用户ID',
+    match_user_id BIGINT NOT NULL COMMENT '匹配用户ID',
+    match_score INT NOT NULL COMMENT '匹配分数',
+    match_reason VARCHAR(255) COMMENT '匹配原因',
+    status INT NOT NULL COMMENT '状态：0-待确认，1-已确认，2-已拒绝',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    deleted TINYINT DEFAULT 0 COMMENT '逻辑删除：0-未删除，1-已删除',
+    PRIMARY KEY (id),
+    KEY idx_user_id (user_id),
+    KEY idx_match_user_id (match_user_id),
+    KEY idx_match_score (match_score),
+    KEY idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='旅伴匹配表';

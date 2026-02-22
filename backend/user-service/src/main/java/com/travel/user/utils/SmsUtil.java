@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +37,8 @@ public class SmsUtil {
      */
     public void storeCode(String phone, String code, String type) {
         String key = RedisKeyConstant.getSmsCodeKey(phone, type);
-        redisTemplate.opsForValue().set(key, code, 5, TimeUnit.MINUTES);
+        // 存储验证码，包含验证码和使用次数
+        redisTemplate.opsForValue().set(key, code + ":0", 5, TimeUnit.MINUTES);
     }
     
     /**
@@ -49,11 +50,28 @@ public class SmsUtil {
      */
     public boolean validateCode(String phone, String code, String type) {
         String key = RedisKeyConstant.getSmsCodeKey(phone, type);
-        String storedCode = (String) redisTemplate.opsForValue().get(key);
-        if (StrUtil.isEmpty(storedCode)) {
+        String storedValue = (String) redisTemplate.opsForValue().get(key);
+        if (StrUtil.isEmpty(storedValue)) {
             return false;
         }
-        return storedCode.equals(code);
+        
+        // 解析存储的值，格式为 "code:useCount"
+        String[] parts = storedValue.split(":");
+        if (parts.length != 2) {
+            return false;
+        }
+        
+        String storedCode = parts[0];
+        int useCount = Integer.parseInt(parts[1]);
+        
+        // 验证验证码是否正确且未被使用
+        if (!storedCode.equals(code) || useCount >= 1) {
+            return false;
+        }
+        
+        // 更新使用次数
+        redisTemplate.opsForValue().set(key, storedCode + ":1", 5, TimeUnit.MINUTES);
+        return true;
     }
     
     /**

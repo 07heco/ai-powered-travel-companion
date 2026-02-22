@@ -41,6 +41,8 @@ spring:
         namespace: public
         group: DEFAULT_GROUP
         file-extension: yaml
+        import-check:
+          enabled: false
 
 # MyBatis-Plus配置
 mybatis-plus:
