@@ -1,8 +1,7 @@
+com\travel\destination\controller\DestinationController.class
+com\travel\destination\dao\DestinationDao.class
+com\travel\destination\entity\Destination.class
 com\travel\destination\dao\AttractionDao.class
 com\travel\destination\service\DestinationService.class
-com\travel\destination\controller\DestinationController.class
 com\travel\destination\DestinationApplication.class
-com\travel\destination\dao\DestinationDao.class
-com\travel\destination\service\impl\DestinationServiceImpl.class
 com\travel\destination\entity\Attraction.class
-com\travel\destination\entity\Destination.class
