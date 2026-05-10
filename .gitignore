@@ -1,0 +1,56 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+frontend/.next/
+frontend/out/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Java/Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+*.log
+hs_err_pid*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.cache/
+
+# IDE specific
+*.iml
+*.ipr
+*.iws
+
+# Trae IDE
+.trae/
+
+# Other documentation files that might be created during development
+分阶段执行计划.md
+服务模块单页摘要.md
+服务模块开发进度与兼容性分析.md
+项目介绍.md
