@@ -39,6 +39,41 @@ mvnw.cmd text eol=crlf
 *.dll binary
 *.exe binary
 
+# =====================================================
+# GitHub Linguist 配置 - 语言统计设置
+# =====================================================
+# 将前端文件标记为 vendored（不参与语言统计）
+# 这样GitHub上会只显示Java作为主要语言
+# =====================================================
+
+# 前端目录 - 标记为vendored
+frontend/** linguist-vendored=true
+frontend/** linguist-generated=true
+
+# 前端文件类型
+*.js linguist-vendored=true
+*.jsx linguist-vendored=true
+*.ts linguist-vendored=true
+*.tsx linguist-vendored=true
+*.css linguist-vendored=true
+*.html linguist-vendored=true
+*.json linguist-vendored
+*.json linguist-vendored=true
+*.mjs linguist-vendored=true
+
+# Node相关
+node_modules/** linguist-vendored=true
+frontend/node_modules/** linguist-vendored=true
+package-lock.json linguist-vendored=true
+yarn.lock linguist-vendored=true
+pnpm-lock.yaml linguist-vendored=true
+
+# 构建产物
+frontend/dist/** linguist-vendored=true
+frontend/.next/** linguist-vendored=true
+
+# =====================================================
 # Git LFS - 大文件支持 (可选)
+# =====================================================
 # *.psd filter=lfs diff=lfs merge=lfs -text
 # *.ai filter=lfs diff=lfs merge=lfs -text
